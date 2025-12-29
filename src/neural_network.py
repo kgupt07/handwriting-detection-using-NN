@@ -1,6 +1,5 @@
 import numpy as np
 
-
 #lets define prameters!!
 
 #defining sigmoid: smoothening activation function to make our function non-linear
@@ -93,7 +92,7 @@ class NeuralNetwork:
         print("Epoch: " + str(epoch) + " Loss: " + str(loss))
 
     def predict(self, X):
-      return self.forward_pass(X)
+      return np.argmax(self.forward_pass(X))
 
     def accuracy(self, X, Y):
       Y_hat = self.predict(X)
@@ -111,7 +110,7 @@ class NeuralNetwork:
         hidden_size=self.hidden_size,
         output_size=self.output_size
       )
-      
+
     @staticmethod
     def load(filepath):
         data = np.load(filepath)
